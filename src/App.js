@@ -4,6 +4,20 @@ import logo from './logo.svg';
 import './App.css';
 import { ProgressBar, Button, Row, Col, Container } from 'react-bootstrap';
 
+
+function progressVariant(progress){
+  switch(true){
+    case (progress < 40):
+      return "danger";
+    case (progress >= 40 && progress <= 70):
+      return "warning";
+    case (progress > 70):
+      return "success";
+    default:
+      return "secondary"
+  }
+}
+
 const initalState = {
   progress: 10
 }
@@ -19,19 +33,6 @@ function reducer(state, action){
   }
 }
 
-function progressVariant(progress){
-  switch(true){
-    case (progress < 40):
-      return "danger";
-    case (progress >= 40 && progress <= 70):
-      return "warning";
-    case (progress > 70):
-      return "success";
-    default:
-      return "secondary"
-  }
-}
-
 function App() {
   const [state, dispatch] = useReducer(reducer, initalState);
 
@@ -44,13 +45,13 @@ function App() {
         <Container>
           <Row>
             <Col xs={6}>
-              <Button variant="light" size="lg" block onClick={() => dispatch("minus")}> 
-                <span>⬅️</span> 
+              <Button variant="light" size="lg" block onClick={() => {state.progress !== 0 && dispatch("minus")}}> 
+                <span>➖</span> 
               </Button>
             </Col>
             <Col xs={6}>
-              <Button variant="light" size="lg" block onClick={() => dispatch("plus")}>
-                <span>➡️</span> 
+              <Button variant="light" size="lg" block onClick={() => {state.progress !== 100 && dispatch("plus")}}>
+                <span>➕</span> 
               </Button>
             </Col>
           </Row>
