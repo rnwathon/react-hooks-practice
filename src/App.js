@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 import UseState from './modules/UseState';
 import UseEffect from './modules/UseEffect';
 import UseReducer from './modules/UseReducer';
+import UseRef from './modules/UseRef';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <UseState />
         <UseEffect />
         <UseReducer />
+        <UseRef />
       </Container>
     </div>
   );
