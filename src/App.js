@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Container } from 'react-bootstrap';
 
+import UseState from './modules/UseState';
 
 function App() {
   return (
@@ -12,7 +13,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
       </header>
       <Container>
-        
+        <UseState />
       </Container>
     </div>
   );
